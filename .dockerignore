@@ -1,0 +1,11 @@
+**/node_modules
+**/.next
+frontend/out
+**/__pycache__
+**/*.pyc
+**/.env
+*.env
+.git
+.gitignore
+*.log
+DESIGN.md

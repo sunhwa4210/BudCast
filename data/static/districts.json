@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "description": "서울 25개 자치구 러브버그 위험도 산출용 정적 데이터 (데모용 추정치)",
+    "fields": {
+      "past_complaints": "과거 러브버그 관련 민원 추정 건수(누적, lovebug_words 필터 가정)",
+      "population": "주민등록인구(명, 대략치)",
+      "area_km2": "면적(km^2, 대략치)",
+      "green_ratio": "녹지/산림 면적 비율(%) 추정",
+      "park_area_rank": "공원 면적 상대 순위 점수(0~100)",
+      "river_adjacent": "주요 하천(한강/지천) 인접성(0~1)",
+      "region_weight": "북서부·산 인근 출몰 집중 가중(0~1)"
+    },
+    "note": "past_complaints/green_ratio 등은 도메인 패턴(북서부·산 인근 집중)을 반영한 데모 추정치이며, 실데이터 연동 시 교체합니다."
+  },
+  "districts": {
+    "종로구":   {"past_complaints": 130, "population": 142000, "area_km2": 23.91, "green_ratio": 55, "park_area_rank": 85, "river_adjacent": 0.3, "region_weight": 0.7},
+    "중구":     {"past_complaints": 45,  "population": 122000, "area_km2": 9.96,  "green_ratio": 20, "park_area_rank": 35, "river_adjacent": 0.3, "region_weight": 0.3},
+    "용산구":   {"past_complaints": 70,  "population": 217000, "area_km2": 21.87, "green_ratio": 30, "park_area_rank": 55, "river_adjacent": 0.7, "region_weight": 0.4},
+    "성동구":   {"past_complaints": 60,  "population": 280000, "area_km2": 16.85, "green_ratio": 22, "park_area_rank": 50, "river_adjacent": 0.8, "region_weight": 0.3},
+    "광진구":   {"past_complaints": 95,  "population": 339000, "area_km2": 17.06, "green_ratio": 28, "park_area_rank": 60, "river_adjacent": 0.8, "region_weight": 0.4},
+    "동대문구": {"past_complaints": 80,  "population": 338000, "area_km2": 14.22, "green_ratio": 18, "park_area_rank": 40, "river_adjacent": 0.4, "region_weight": 0.35},
+    "중랑구":   {"past_complaints": 120, "population": 386000, "area_km2": 18.50, "green_ratio": 32, "park_area_rank": 55, "river_adjacent": 0.5, "region_weight": 0.5},
+    "성북구":   {"past_complaints": 150, "population": 433000, "area_km2": 24.57, "green_ratio": 42, "park_area_rank": 70, "river_adjacent": 0.3, "region_weight": 0.6},
+    "강북구":   {"past_complaints": 175, "population": 287000, "area_km2": 23.60, "green_ratio": 58, "park_area_rank": 80, "river_adjacent": 0.2, "region_weight": 0.75},
+    "도봉구":   {"past_complaints": 185, "population": 311000, "area_km2": 20.84, "green_ratio": 60, "park_area_rank": 85, "river_adjacent": 0.4, "region_weight": 0.8},
+    "노원구":   {"past_complaints": 230, "population": 503000, "area_km2": 35.44, "green_ratio": 55, "park_area_rank": 90, "river_adjacent": 0.4, "region_weight": 0.8},
+    "은평구":   {"past_complaints": 350, "population": 466000, "area_km2": 29.71, "green_ratio": 62, "park_area_rank": 95, "river_adjacent": 0.3, "region_weight": 1.0},
+    "서대문구": {"past_complaints": 260, "population": 308000, "area_km2": 17.63, "green_ratio": 45, "park_area_rank": 75, "river_adjacent": 0.3, "region_weight": 0.9},
+    "마포구":   {"past_complaints": 190, "population": 366000, "area_km2": 23.84, "green_ratio": 30, "park_area_rank": 65, "river_adjacent": 0.7, "region_weight": 0.85},
+    "양천구":   {"past_complaints": 65,  "population": 437000, "area_km2": 17.41, "green_ratio": 22, "park_area_rank": 50, "river_adjacent": 0.5, "region_weight": 0.35},
+    "강서구":   {"past_complaints": 90,  "population": 562000, "area_km2": 41.44, "green_ratio": 28, "park_area_rank": 70, "river_adjacent": 0.7, "region_weight": 0.4},
+    "구로구":   {"past_complaints": 75,  "population": 397000, "area_km2": 20.12, "green_ratio": 25, "park_area_rank": 50, "river_adjacent": 0.5, "region_weight": 0.35},
+    "금천구":   {"past_complaints": 70,  "population": 229000, "area_km2": 13.02, "green_ratio": 30, "park_area_rank": 45, "river_adjacent": 0.4, "region_weight": 0.4},
+    "영등포구": {"past_complaints": 55,  "population": 376000, "area_km2": 24.55, "green_ratio": 18, "park_area_rank": 45, "river_adjacent": 0.8, "region_weight": 0.3},
+    "동작구":   {"past_complaints": 85,  "population": 380000, "area_km2": 16.35, "green_ratio": 30, "park_area_rank": 55, "river_adjacent": 0.7, "region_weight": 0.45},
+    "관악구":   {"past_complaints": 140, "population": 488000, "area_km2": 29.57, "green_ratio": 48, "park_area_rank": 75, "river_adjacent": 0.3, "region_weight": 0.6},
+    "서초구":   {"past_complaints": 110, "population": 408000, "area_km2": 47.00, "green_ratio": 45, "park_area_rank": 80, "river_adjacent": 0.6, "region_weight": 0.5},
+    "강남구":   {"past_complaints": 50,  "population": 532000, "area_km2": 39.50, "green_ratio": 25, "park_area_rank": 60, "river_adjacent": 0.6, "region_weight": 0.3},
+    "송파구":   {"past_complaints": 60,  "population": 656000, "area_km2": 33.88, "green_ratio": 22, "park_area_rank": 65, "river_adjacent": 0.7, "region_weight": 0.3},
+    "강동구":   {"past_complaints": 70,  "population": 461000, "area_km2": 24.59, "green_ratio": 25, "park_area_rank": 55, "river_adjacent": 0.7, "region_weight": 0.35}
+  }
+}

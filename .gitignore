@@ -1,0 +1,18 @@
+# 환경변수 / 비밀키
+.env
+backend/.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Node / Next
+node_modules/
+.next/
+frontend/.next/
+frontend/node_modules/
+frontend/out/
+
+# 로그
+*.log
