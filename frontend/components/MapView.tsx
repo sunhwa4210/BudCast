@@ -17,7 +17,8 @@ export default function MapView({ riskByGu, selected, onSelect }: Props) {
   const [geo, setGeo] = useState<FeatureCollection | null>(null);
 
   useEffect(() => {
-    fetch("/seoul.geojson")
+    const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    fetch(`${base}/seoul.geojson`)
       .then((r) => r.json())
       .then(setGeo)
       .catch(() => setGeo(null));

@@ -2,12 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
-import {
-  API_BASE,
-  DistrictRisk,
-  RiskResponse,
-  levelColor,
-} from "./lib";
+import { DistrictRisk, RiskResponse, levelColor } from "./lib";
+import { getRisk } from "./engine";
 
 const MapView = dynamic(() => import("../components/MapView"), {
   ssr: false,
@@ -31,28 +27,24 @@ export default function Page() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const ctrl = new AbortController();
+    let cancelled = false;
     const t = setTimeout(() => {
       setLoading(true);
       setError(null);
-      const qs = new URLSearchParams({
-        mode,
-        date,
-        days_since_rain: String(daysSinceRain),
-        temp: String(temp),
-        humidity: String(humidity),
-      });
-      fetch(`${API_BASE}/api/risk?${qs}`, { signal: ctrl.signal })
-        .then((r) => r.json())
-        .then((d: RiskResponse) => setData(d))
-        .catch((e) => {
-          if (e.name !== "AbortError") setError("백엔드(API) 연결 실패 — 8000 포트 확인");
+      getRisk({ mode, date, daysSinceRain, temp, humidity })
+        .then((d: RiskResponse) => {
+          if (!cancelled) setData(d);
         })
-        .finally(() => setLoading(false));
+        .catch(() => {
+          if (!cancelled) setError("위험도 계산 중 오류가 발생했습니다.");
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false);
+        });
     }, 150);
     return () => {
+      cancelled = true;
       clearTimeout(t);
-      ctrl.abort();
     };
   }, [mode, date, daysSinceRain, temp, humidity]);
 
@@ -229,7 +221,7 @@ export default function Page() {
           <div className="detail-card" style={{ borderColor: "var(--danger)" }}>
             <b style={{ color: "var(--danger)" }}>⚠ {error}</b>
             <div className="hint" style={{ marginTop: 8 }}>
-              backend 폴더에서 uvicorn 실행 여부를 확인하세요.
+              잠시 후 다시 시도하거나 새로고침 해주세요.
             </div>
           </div>
         )}
